@@ -4,16 +4,14 @@ import org.usfirst.frc.team2574.generalLee.OI;
 import org.usfirst.frc.team2574.generalLee.Robot;
 import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
 
-
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class TeleMast extends Command {
+public class TeleRatchet extends Command {
 
-    public TeleMast() {
+    public TeleRatchet() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.mast);
@@ -21,25 +19,11 @@ public class TeleMast extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Mast.initPosPID();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double sp = (OI.getMast() * 4.45) + 4.95;
-    	Mast.set(sp);
-    	SmartDashboard.putNumber("setpoint", sp);
-    	SmartDashboard.putNumber("analog0", Mast.position0());
-    	SmartDashboard.putNumber("analog1", Mast.position1());
-    	double lift = OI.getLift();
-    	/*if(lift < 0) {
-    		Mast.ratchetSet(.5);
-    	} else {
-    		Mast.ratchetSet(.3);
-    	}
-    	*/
-    	Mast.lift(lift); 
-    	
+    	Mast.ratchetSet((OI.getRatchet() * .5) + .5);
     }
 
     // Make this return true when this Command no longer needs to run execute()

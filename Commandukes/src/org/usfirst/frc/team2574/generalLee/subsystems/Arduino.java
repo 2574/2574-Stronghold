@@ -11,7 +11,9 @@ public class Arduino extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    
+    public boolean requestFrom(int address, int count, byte[] buffer) {
+    	return i2cBus.read(address, count, buffer);
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

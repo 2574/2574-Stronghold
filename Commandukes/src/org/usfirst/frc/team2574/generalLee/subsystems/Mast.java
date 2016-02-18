@@ -4,6 +4,7 @@ import org.usfirst.frc.team2574.generalLee.RobotMap;
 import org.usfirst.frc.team2574.generalLee.commands.TeleMast;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,6 +18,9 @@ public class Mast extends Subsystem {
     private static CANTalon mastTal1 = new CANTalon(RobotMap.mastTal1id);
     
     private static Talon lifterTal = new Talon(RobotMap.lifterTalonPWM);
+    
+    private static Servo ratchet = new Servo(RobotMap.ratchetServoPWM);
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public static void initPosPID() {
@@ -36,6 +40,10 @@ public class Mast extends Subsystem {
     	mastTal0.enableControl();
     	mastTal1.enableControl();
     	
+    }
+    
+    public static void ratchetSet(double pos) {
+    	ratchet.set(pos);
     }
     
     public void initSpeedPID() {

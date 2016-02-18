@@ -66,6 +66,9 @@ public class OI {
 		return joystick0.getRawAxis(3);
 	}
 	
+	public static double getRatchet() {
+		return joystick1.getRawAxis(3);
+	}
 	
 	public static double getArm() {
 		return joystick1.getRawAxis(1);

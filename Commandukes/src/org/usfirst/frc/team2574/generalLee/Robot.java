@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
-
+import org.usfirst.frc.team2574.generalLee.subsystems.Balls;
 import org.usfirst.frc.team2574.generalLee.subsystems.Drive;
 import org.usfirst.frc.team2574.generalLee.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2574.generalLee.subsystems.FrontArm;
@@ -28,6 +28,8 @@ public class Robot extends IterativeRobot {
 	public static final Drive drive = new Drive();
 	public static final Mast mast = new Mast();
 	public static final FrontArm frontArm = new FrontArm();
+	//public static final Balls balls = new Balls();
+	
 	public static OI oi;
 
     Command autonomousCommand;

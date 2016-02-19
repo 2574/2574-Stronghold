@@ -60,7 +60,7 @@ public class Mast extends Subsystem {
     
     public static void set(double pos) {
     	mastTal0.set(pos);
-    	mastTal1.set(pos - .38);
+    	mastTal1.set(pos - .25);
     }
     
     public static void lift(double speed) {

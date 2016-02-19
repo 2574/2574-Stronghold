@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
 import org.usfirst.frc.team2574.generalLee.commands.InvertDriveCommand;
+import org.usfirst.frc.team2574.generalLee.commands.StopBalls;
+import org.usfirst.frc.team2574.generalLee.commands.TeleBalls;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,6 +24,7 @@ public class OI {
     static Joystick joystick0 = new Joystick(0);
     static Joystick joystick1 = new Joystick(1);
     Button invertDrive = new JoystickButton(joystick0, 3); //change number eventually
+    Button ballF = new JoystickButton(joystick0, 12);
     
     public OI() {
     // There are a few additional built in buttons you can use. Additionally,
@@ -32,6 +35,8 @@ public class OI {
     // Once you have a button, it's trivial to bind it to a button in one of
     // three ways:
     invertDrive.whenPressed(new InvertDriveCommand());
+    ballF.whileHeld(new TeleBalls());
+    ballF.whenReleased(new StopBalls());
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());

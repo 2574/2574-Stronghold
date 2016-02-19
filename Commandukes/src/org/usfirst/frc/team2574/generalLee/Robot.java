@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot {
 	public static final Drive drive = new Drive();
 	public static final Mast mast = new Mast();
 	public static final FrontArm frontArm = new FrontArm();
-	//public static final Balls balls = new Balls();
+	public static final Balls balls = new Balls();
 	
 	public static OI oi;
 

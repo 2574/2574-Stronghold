@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2574.generalLee.subsystems;
 
 import org.usfirst.frc.team2574.generalLee.RobotMap;
+import org.usfirst.frc.team2574.generalLee.commands.RunMast;
 import org.usfirst.frc.team2574.generalLee.commands.TeleMast;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -64,13 +65,13 @@ public class Mast extends Subsystem {
     }
     
     public static void lift(double speed) {
-    	//lifterTal.set(speed);
+    	lifterTal.set(speed);
     }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TeleMast());
+    	setDefaultCommand(new RunMast());
     }
 }
 

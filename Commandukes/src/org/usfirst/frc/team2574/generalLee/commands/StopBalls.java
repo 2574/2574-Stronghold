@@ -13,7 +13,7 @@ public class StopBalls extends Command {
     public StopBalls() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.balls);
+    	//requires(Robot.balls);
     }
 
     // Called just before this Command runs the first time

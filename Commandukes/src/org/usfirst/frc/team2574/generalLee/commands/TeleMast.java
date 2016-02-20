@@ -31,14 +31,8 @@ public class TeleMast extends Command {
     	SmartDashboard.putNumber("setpoint", sp);
     	SmartDashboard.putNumber("analog0", Mast.position0());
     	SmartDashboard.putNumber("analog1", Mast.position1());
-    	double lift = OI.getLift();
-    	/*if(lift < 0) {
-    		Mast.ratchetSet(.5);
-    	} else {
-    		Mast.ratchetSet(.3);
-    	}
-    	*/
-    	Mast.lift(lift); 
+    	
+    	
     	
     }
 

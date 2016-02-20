@@ -19,9 +19,9 @@ public class RobotMap {
     public static int mastTal0id = 1;
     public static int mastTal1id = 2;
     
-    public static int lifterTalonPWM = 7;
+    public static int winchTalonid = 7;
     
-    public static int frontArmTalPWM = 8;
+    public static int frontArmTalPWM = 7;
     
     public static int ratchetServoPWM = 6;
     

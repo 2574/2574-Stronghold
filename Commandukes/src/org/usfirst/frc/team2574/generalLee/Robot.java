@@ -11,6 +11,7 @@ import org.usfirst.frc.team2574.generalLee.subsystems.Drive;
 import org.usfirst.frc.team2574.generalLee.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2574.generalLee.subsystems.FrontArm;
 import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
+import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static final Drive drive = new Drive();
 	public static final Mast mast = new Mast();
 	public static final FrontArm frontArm = new FrontArm();
+	public static final Winch winch = new Winch();
 	//public static final Balls balls = new Balls();
 	
 	public static OI oi;

@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2574.generalLee.subsystems;
 
 import org.usfirst.frc.team2574.generalLee.RobotMap;
-import org.usfirst.frc.team2574.generalLee.commands.RunMast;
+
 import org.usfirst.frc.team2574.generalLee.commands.TeleMast;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -18,9 +18,9 @@ public class Mast extends Subsystem {
     
     private static CANTalon mastTal1 = new CANTalon(RobotMap.mastTal1id);
     
-    private static Talon lifterTal = new Talon(RobotMap.lifterTalonPWM);
+    //private static Talon lifterTal = new Talon(RobotMap.lifterTalonPWM);
     
-    private static Servo ratchet = new Servo(RobotMap.ratchetServoPWM);
+    //private static Servo ratchet = new Servo(RobotMap.ratchetServoPWM);
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -43,9 +43,7 @@ public class Mast extends Subsystem {
     	
     }
     
-    public static void ratchetSet(double pos) {
-    	ratchet.set(pos);
-    }
+    
     
     public void initSpeedPID() {
     	
@@ -64,14 +62,14 @@ public class Mast extends Subsystem {
     	mastTal1.set(pos - .25);
     }
     
-    public static void lift(double speed) {
+    /*public static void lift(double speed) {
     	lifterTal.set(speed);
     }
-    
+    */
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new RunMast());
+    	setDefaultCommand(new TeleMast());
     }
 }
 

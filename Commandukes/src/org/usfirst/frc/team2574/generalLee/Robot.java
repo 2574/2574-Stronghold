@@ -6,11 +6,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
-import org.usfirst.frc.team2574.generalLee.subsystems.Balls;
+import org.usfirst.frc.team2574.generalLee.subsystems.BallIntake;
+import org.usfirst.frc.team2574.generalLee.subsystems.BallSucker;
+import org.usfirst.frc.team2574.generalLee.subsystems.Cam;
 import org.usfirst.frc.team2574.generalLee.subsystems.Drive;
 import org.usfirst.frc.team2574.generalLee.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2574.generalLee.subsystems.FrontArm;
 import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
+import org.usfirst.frc.team2574.generalLee.subsystems.Power;
 import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -30,7 +33,11 @@ public class Robot extends IterativeRobot {
 	public static final Mast mast = new Mast();
 	public static final FrontArm frontArm = new FrontArm();
 	public static final Winch winch = new Winch();
-	//public static final Balls balls = new Balls();
+	public static final BallSucker ballSucker = new BallSucker();
+	public static final Cam cam = new Cam();
+	public static final Power power = new Power();
+	//public static final BallIntake balls = new BallIntake();
+	
 	
 	public static OI oi;
 

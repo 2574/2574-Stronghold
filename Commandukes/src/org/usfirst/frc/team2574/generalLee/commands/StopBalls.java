@@ -1,9 +1,12 @@
 package org.usfirst.frc.team2574.generalLee.commands;
 
 import org.usfirst.frc.team2574.generalLee.Robot;
-import org.usfirst.frc.team2574.generalLee.subsystems.Balls;
+import org.usfirst.frc.team2574.generalLee.subsystems.BallIntake;
+import org.usfirst.frc.team2574.generalLee.subsystems.BallSucker;
+import org.usfirst.frc.team2574.generalLee.subsystems.Power;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -13,7 +16,7 @@ public class StopBalls extends Command {
     public StopBalls() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	//requires(Robot.balls);
+    	requires(Robot.ballSucker);
     }
 
     // Called just before this Command runs the first time
@@ -31,7 +34,9 @@ public class StopBalls extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Balls.set(0);
+    	BallSucker.roller(.1);
+    	
+    	
     }
 
     // Called when another command which requires one or more of the same

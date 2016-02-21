@@ -25,7 +25,7 @@ public class TeleArm extends Command {
     protected void execute() {
     	double sp = OI.getArm();
     	if(sp >.15 | sp < -.15) {
-    		FrontArm.set(sp);
+    		FrontArm.set(-sp);
     	} else {
     		FrontArm.set(0);
     	}

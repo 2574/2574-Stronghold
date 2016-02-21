@@ -22,8 +22,10 @@ public class RobotMap {
     public static int winchTalonid = 7;
     
     public static int frontArmTalPWM = 7;
+    public static int ballSuckerTalPWM = 8;
     
     public static int ratchetServoPWM = 6;
+    public static int camServoPWM = 5;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:

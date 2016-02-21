@@ -6,8 +6,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
 import org.usfirst.frc.team2574.generalLee.commands.InvertDriveCommand;
+import org.usfirst.frc.team2574.generalLee.commands.MastDown;
+import org.usfirst.frc.team2574.generalLee.commands.MastUp;
+import org.usfirst.frc.team2574.generalLee.commands.SpitBalls;
 import org.usfirst.frc.team2574.generalLee.commands.StopBalls;
-import org.usfirst.frc.team2574.generalLee.commands.TeleBalls;
+import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
+import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,7 +28,12 @@ public class OI {
     static Joystick joystick0 = new Joystick(0);
     static Joystick joystick1 = new Joystick(1);
     Button invertDrive = new JoystickButton(joystick0, 3); //change number eventually
-    Button ballF = new JoystickButton(joystick0, 12);
+    
+    Button ballF = new JoystickButton(joystick0, 1);
+    Button ballR = new JoystickButton(joystick0, 2);
+    
+    Button Mast0 = new JoystickButton(joystick1, 12);
+    Button Mast1 = new JoystickButton(joystick1, 11);
     
     public OI() {
     // There are a few additional built in buttons you can use. Additionally,
@@ -35,8 +44,13 @@ public class OI {
     // Once you have a button, it's trivial to bind it to a button in one of
     // three ways:
     invertDrive.whenPressed(new InvertDriveCommand());
-    ballF.whileHeld(new TeleBalls());
+    ballF.whileHeld(new SuckBalls());
     ballF.whenReleased(new StopBalls());
+    ballR.whenPressed(new SpitBalls());
+    ballR.whenReleased(new StopBalls());
+    
+    Mast0.whenPressed(new MastUp());
+    Mast1.whenPressed(new MastDown());
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());
@@ -71,7 +85,7 @@ public class OI {
 		return joystick0.getRawAxis(3);
 	}
 	
-	public static double getRatchet() {
+	public static double getCam() {
 		return joystick1.getRawAxis(3);
 	}
 	

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2574.generalLee.subsystems;
 
 import org.usfirst.frc.team2574.generalLee.RobotMap;
+import org.usfirst.frc.team2574.generalLee.commands.StartDrive;
 import org.usfirst.frc.team2574.generalLee.commands.TeleDrive;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -39,7 +40,7 @@ public class Drive extends Subsystem {
     	}
     }
     
-    public void invert() {
+    public static void invert() {
     	leftTal0.setInverted(!leftTal0.getInverted());
     	leftTal1.setInverted(!leftTal1.getInverted());
     	rightTal0.setInverted(!rightTal0.getInverted());

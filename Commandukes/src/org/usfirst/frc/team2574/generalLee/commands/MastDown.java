@@ -1,19 +1,21 @@
 package org.usfirst.frc.team2574.generalLee.commands;
 
 import org.usfirst.frc.team2574.generalLee.Robot;
-import org.usfirst.frc.team2574.generalLee.subsystems.Balls;
+import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
+import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class TeleBalls extends Command {
+public class MastDown extends Command {
 
-    public TeleBalls() {
+    public MastDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	//requires(Robot.balls);
+    	requires(Robot.mast);
+    	requires(Robot.winch);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +24,6 @@ public class TeleBalls extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,7 +33,9 @@ public class TeleBalls extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Balls.set(1.0);
+    	//Winch.ratchetSet(.1);
+    	
+    	Winch.set(0);
     }
 
     // Called when another command which requires one or more of the same

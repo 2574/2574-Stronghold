@@ -3,14 +3,17 @@ package org.usfirst.frc.team2574.generalLee;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 
 import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
 import org.usfirst.frc.team2574.generalLee.commands.InvertDriveCommand;
-import org.usfirst.frc.team2574.generalLee.commands.MastDown;
-import org.usfirst.frc.team2574.generalLee.commands.MastUp;
 import org.usfirst.frc.team2574.generalLee.commands.SpitBalls;
 import org.usfirst.frc.team2574.generalLee.commands.StopBalls;
 import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
+import org.usfirst.frc.team2574.generalLee.commands.winch.CurrentKill;
+import org.usfirst.frc.team2574.generalLee.commands.winch.MastDown;
+import org.usfirst.frc.team2574.generalLee.commands.winch.MastUp;
+import org.usfirst.frc.team2574.generalLee.commands.winch.ZeroWinch;
 import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
 
 /**
@@ -34,6 +37,8 @@ public class OI {
     
     Button Mast0 = new JoystickButton(joystick1, 12);
     Button Mast1 = new JoystickButton(joystick1, 11);
+    Button winchZero = new JoystickButton(joystick1, 8);
+    Trigger current = new Current();
     
     public OI() {
     // There are a few additional built in buttons you can use. Additionally,
@@ -51,6 +56,9 @@ public class OI {
     
     Mast0.whenPressed(new MastUp());
     Mast1.whenPressed(new MastDown());
+    current.whenActive(new CurrentKill());
+    
+    winchZero.whenPressed(new ZeroWinch());
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());

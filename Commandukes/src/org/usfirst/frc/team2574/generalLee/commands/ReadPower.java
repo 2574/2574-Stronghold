@@ -24,9 +24,10 @@ public class ReadPower extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	for(int i =0; i<=15; i++){
+    	/*for(int i =0; i<=15; i++){
     		SmartDashboard.putNumber("pwrChan" + i, Power.getCurrent(i));
     	}
+    	*/
     	SmartDashboard.putNumber("totalPwr", Power.getCurrent());
     	//Timer.delay(.02);
     }

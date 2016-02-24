@@ -1,9 +1,11 @@
 package org.usfirst.frc.team2574.generalLee.subsystems;
 
 import org.usfirst.frc.team2574.generalLee.RobotMap;
-import org.usfirst.frc.team2574.generalLee.commands.TeleWinch;
+import org.usfirst.frc.team2574.generalLee.commands.winch.TeleWinch;
+import org.usfirst.frc.team2574.generalLee.commands.winch.ZeroWinch;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -15,8 +17,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class Winch extends Subsystem {
+	
 	private static CANTalon winchTal = new CANTalon(RobotMap.winchTalonid);
 	private static Servo ratchet = new Servo(RobotMap.ratchetServoPWM);
+	private static DigitalInput lowerLim = new DigitalInput(0);
 	
 	public static void initWinch() {
 		winchTal.changeControlMode(CANTalon.TalonControlMode.Position);
@@ -25,13 +29,14 @@ public class Winch extends Subsystem {
     	
     	winchTal.setVoltageRampRate(10);
     	double kP = 0.25;
-    	double kI = 0.00005;
+    	double kI = 0.00008;
     	double kD = 0.0;
     	winchTal.setPID(kP, kI, kD);
     	
     	winchTal.reverseSensor(false);
     	winchTal.reverseOutput(true);
     	winchTal.setEncPosition(0);
+    	//winchTal.setReverseSoftLimit(-0.05);
     	winchTal.enableControl();
 	}
 	
@@ -39,6 +44,10 @@ public class Winch extends Subsystem {
 		winchTal.configEncoderCodesPerRev(360);
 		winchTal.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 		winchTal.setEncPosition(0);
+	}
+	
+	public static boolean lowLim() {
+		return lowerLim.get();
 	}
 	
 	public void zero() {
@@ -55,6 +64,13 @@ public class Winch extends Subsystem {
 		SmartDashboard.putNumber("WinchSP", pos);
 		
 	}
+	public static void manual() {
+		winchTal.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	}
+	
+	public static double getCurrent() {
+		return winchTal.getOutputCurrent();
+	}
 	
 	public static double getPos() {
 		return winchTal.getPosition();
@@ -65,7 +81,7 @@ public class Winch extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	//setDefaultCommand(new TeleWinch());
+    	//setDefaultCommand(new ZeroWinch());
     }
 }
 

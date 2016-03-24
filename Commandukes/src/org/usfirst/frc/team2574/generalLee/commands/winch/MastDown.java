@@ -33,7 +33,7 @@ public class MastDown extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Winch.ratchetSet(.1);
+    	Winch.ratchetSet(.18);
     	
     	Winch.set(0);
     	

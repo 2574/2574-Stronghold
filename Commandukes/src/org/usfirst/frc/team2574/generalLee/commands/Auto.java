@@ -1,8 +1,7 @@
-package org.usfirst.frc.team2574.generalLee.commands.winch;
+package org.usfirst.frc.team2574.generalLee.commands;
 
 import org.usfirst.frc.team2574.generalLee.Robot;
-import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
-import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
+import org.usfirst.frc.team2574.generalLee.subsystems.Drive;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,30 +9,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class MastUp extends Command {
+public class Auto extends Command {
 
-    public MastUp() {
+    public Auto() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.winch);
-    	requires(Robot.mast);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	/*Winch.manual();
-    	//Winch.ratchetSet(.6);
-    	//double time = Timer.getFPGATimestamp();
-    	while(Winch.lowLim() ) {
-    		Winch.set(.45);
-    	}
-    	Winch.set(0);
-    	System.out.println("stopped");
-    	Winch.initWinch();
-    	*/
-    	System.out.println("post init");
-    	//Winch.set(-.2);
-    	//Mast.initPosPID();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -47,12 +32,9 @@ public class MastUp extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Winch.ratchetSet(0.6);
-    	Winch.set(-.4);
-    	Timer.delay(.5);
-    	
-    	Timer.delay(.2);
-    	Winch.set(3.8);
+    	Drive.arcadeDrive(1, 0);
+    	Timer.delay(3.5);
+    	Drive.arcadeDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same

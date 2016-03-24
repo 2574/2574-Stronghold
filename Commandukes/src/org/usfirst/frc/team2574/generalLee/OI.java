@@ -58,7 +58,7 @@ public class OI {
     Mast1.whenPressed(new MastDown());
     current.whenActive(new CurrentKill());
     
-    winchZero.whenPressed(new ZeroWinch());
+    //winchZero.whenPressed(new ZeroWinch());
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());

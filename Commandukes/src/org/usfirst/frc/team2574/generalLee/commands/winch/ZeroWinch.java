@@ -32,16 +32,19 @@ public class ZeroWinch extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Winch.manual();
-    	while(Winch.lowLim()) {
-    		Winch.set(.5);
+    	if(!Winch.init()) {
+    		Winch.manual();
+    		while(Winch.lowLim()) {
+        		Winch.set(.55);
+        	}
+        	Timer.delay(1);
+        	Winch.set(0);
+        	System.out.println("stopped");
+        	Winch.initWinch();
+        	System.out.println("post init");
+        	Winch.set(-.7);
     	}
-    	Timer.delay(1);
-    	Winch.set(0);
-    	System.out.println("stopped");
-    	Winch.initWinch();
-    	System.out.println("post init");
-    	Winch.set(-.3);
+    	
     }
 
     // Called when another command which requires one or more of the same

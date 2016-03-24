@@ -21,6 +21,7 @@ public class Winch extends Subsystem {
 	private static CANTalon winchTal = new CANTalon(RobotMap.winchTalonid);
 	private static Servo ratchet = new Servo(RobotMap.ratchetServoPWM);
 	private static DigitalInput lowerLim = new DigitalInput(0);
+	private static boolean init = false; 
 	
 	public static void initWinch() {
 		winchTal.changeControlMode(CANTalon.TalonControlMode.Position);
@@ -29,7 +30,7 @@ public class Winch extends Subsystem {
     	
     	winchTal.setVoltageRampRate(10);
     	double kP = 0.25;
-    	double kI = 0.00008;
+    	double kI = 0.00006;
     	double kD = 0.0;
     	winchTal.setPID(kP, kI, kD);
     	
@@ -37,6 +38,7 @@ public class Winch extends Subsystem {
     	winchTal.reverseOutput(true);
     	winchTal.setEncPosition(0);
     	//winchTal.setReverseSoftLimit(-0.05);
+    	init = true;
     	winchTal.enableControl();
 	}
 	
@@ -66,10 +68,15 @@ public class Winch extends Subsystem {
 	}
 	public static void manual() {
 		winchTal.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		init = false;
 	}
 	
 	public static double getCurrent() {
 		return winchTal.getOutputCurrent();
+	}
+	
+	public static boolean init() {
+		return init;
 	}
 	
 	public static double getPos() {
@@ -81,7 +88,7 @@ public class Winch extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	//setDefaultCommand(new ZeroWinch());
+    	setDefaultCommand(new ZeroWinch());
     }
 }
 

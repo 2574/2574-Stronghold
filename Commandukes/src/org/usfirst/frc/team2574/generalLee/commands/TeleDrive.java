@@ -20,13 +20,14 @@ public class TeleDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
-    	
+    	Drive.setSafety(true);
+    	Drive.invert();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Drive.arcadeDrive(OI.getThrottle(), OI.getRotation());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

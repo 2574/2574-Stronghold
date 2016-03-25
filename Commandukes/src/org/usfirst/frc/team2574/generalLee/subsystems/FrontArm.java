@@ -21,7 +21,7 @@ public class FrontArm extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new TeleArm());
+    	//setDefaultCommand(new TeleArm());
     }
 }
 

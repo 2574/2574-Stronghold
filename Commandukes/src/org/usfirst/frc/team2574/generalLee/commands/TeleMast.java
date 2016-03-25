@@ -27,7 +27,7 @@ public class TeleMast extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double sp = (OI.getMast() * -4.45) + 4.95;
+    	double sp = (OI.getMast() * -4.46) + 4.97;
     	Mast.set(sp);
     	SmartDashboard.putNumber("setpoint", sp);
     	SmartDashboard.putNumber("analog0", Mast.position0());

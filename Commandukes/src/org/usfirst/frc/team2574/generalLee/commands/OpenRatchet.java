@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2574.generalLee.commands;
 
 import org.usfirst.frc.team2574.generalLee.Robot;
-import org.usfirst.frc.team2574.generalLee.subsystems.Drive;
+import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Auto extends Command {
+public class OpenRatchet extends Command {
 
-    public Auto() {
+    public OpenRatchet() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drive);
+    	requires(Robot.winch);
     }
 
     // Called just before this Command runs the first time
@@ -32,10 +32,9 @@ public class Auto extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Drive.setSafety(false);
-    	Drive.arcadeDrive(1, 0);
-    	Timer.delay(3.5);
-    	Drive.arcadeDrive(0, 0);
+    	/*if(Timer.getMatchTime() < 18) {
+    		Winch.ratchetSet(.7);
+    	}*/
     }
 
     // Called when another command which requires one or more of the same

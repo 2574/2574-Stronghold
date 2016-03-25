@@ -29,9 +29,9 @@ public class Mast extends Subsystem {
     	mastTal0.setFeedbackDevice(CANTalon.FeedbackDevice.AnalogPot);
     	mastTal0.configPotentiometerTurns(10);
     	mastTal0.setVoltageRampRate(10);
-    	double kP = SmartDashboard.getNumber("P", 2.5);
-    	double kI = SmartDashboard.getNumber("I", 0.000085);
-    	double kD = SmartDashboard.getNumber("D", 0.5);
+    	double kP = SmartDashboard.getNumber("P", 2.6);
+    	double kI = SmartDashboard.getNumber("I", 0.000088);
+    	double kD = SmartDashboard.getNumber("D", 0.4);
     	mastTal0.setPID(kP, kI, kD);
     	mastTal1.setFeedbackDevice(CANTalon.FeedbackDevice.AnalogPot);
     	mastTal1.configPotentiometerTurns(10);

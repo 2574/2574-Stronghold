@@ -21,18 +21,19 @@ public class MastUp extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	/*Winch.manual();
-    	//Winch.ratchetSet(.6);
+    	Winch.manual();
+    	Winch.ratchetSet(.6);
     	//double time = Timer.getFPGATimestamp();
     	while(Winch.lowLim() ) {
     		Winch.set(.45);
     	}
-    	Winch.set(0);
+    	Winch.set(.15);
     	System.out.println("stopped");
+    	
     	Winch.initWinch();
-    	*/
+    	
     	System.out.println("post init");
-    	//Winch.set(-.2);
+    	Winch.set(-.2);
     	//Mast.initPosPID();
     }
 
@@ -48,8 +49,7 @@ public class MastUp extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Winch.ratchetSet(0.6);
-    	Winch.set(-.4);
-    	Timer.delay(.5);
+    	
     	
     	Timer.delay(.2);
     	Winch.set(3.8);

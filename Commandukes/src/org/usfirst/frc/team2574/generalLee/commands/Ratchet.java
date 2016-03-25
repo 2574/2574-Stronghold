@@ -1,18 +1,19 @@
-
 package org.usfirst.frc.team2574.generalLee.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team2574.generalLee.Robot;
+import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ExampleCommand extends Command {
+public class Ratchet extends Command {
 
-    public ExampleCommand() {
+    public Ratchet() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        // eg. requires(chassis);
+    	requires(Robot.winch);
     }
 
     // Called just before this Command runs the first time
@@ -25,11 +26,16 @@ public class ExampleCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	if(Winch.ratchetGet() < .3) {
+    		Winch.ratchetSet(.7);
+    	} else {
+    		Winch.ratchetSet(.18);
+    	}
     }
 
     // Called when another command which requires one or more of the same

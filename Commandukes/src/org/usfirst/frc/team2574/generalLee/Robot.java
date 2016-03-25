@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team2574.generalLee.commands.Auto;
-import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
+//import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
 import org.usfirst.frc.team2574.generalLee.subsystems.BallIntake;
 import org.usfirst.frc.team2574.generalLee.subsystems.BallSucker;
 import org.usfirst.frc.team2574.generalLee.subsystems.Cam;
 import org.usfirst.frc.team2574.generalLee.subsystems.Drive;
-import org.usfirst.frc.team2574.generalLee.subsystems.ExampleSubsystem;
+//import org.usfirst.frc.team2574.generalLee.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2574.generalLee.subsystems.FrontArm;
 import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
 import org.usfirst.frc.team2574.generalLee.subsystems.Power;
@@ -30,7 +30,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Drive drive = new Drive();
 	public static final Mast mast = new Mast();
 	public static final FrontArm frontArm = new FrontArm();

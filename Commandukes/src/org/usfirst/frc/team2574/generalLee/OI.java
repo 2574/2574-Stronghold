@@ -5,8 +5,12 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
-import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
+import org.usfirst.frc.team2574.generalLee.commands.ArmForward;
+import org.usfirst.frc.team2574.generalLee.commands.ArmReverse;
+import org.usfirst.frc.team2574.generalLee.commands.ArmStop;
+//import org.usfirst.frc.team2574.generalLee.commands.ExampleCommand;
 import org.usfirst.frc.team2574.generalLee.commands.InvertDriveCommand;
+import org.usfirst.frc.team2574.generalLee.commands.Ratchet;
 import org.usfirst.frc.team2574.generalLee.commands.SpitBalls;
 import org.usfirst.frc.team2574.generalLee.commands.StopBalls;
 import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
@@ -35,9 +39,13 @@ public class OI {
     Button ballF = new JoystickButton(joystick0, 1);
     Button ballR = new JoystickButton(joystick0, 2);
     
-    Button Mast0 = new JoystickButton(joystick1, 12);
-    Button Mast1 = new JoystickButton(joystick1, 11);
+    Button ArmF = new JoystickButton(joystick0, 6);
+    Button ArmR = new JoystickButton(joystick0, 4);
+    
+    Button Mast0 = new JoystickButton(joystick0, 12);
+    Button Mast1 = new JoystickButton(joystick0, 11);
     Button winchZero = new JoystickButton(joystick1, 8);
+    Button ratchet = new JoystickButton(joystick0, 9);
     Trigger current = new Current();
     
     public OI() {
@@ -54,8 +62,14 @@ public class OI {
     ballR.whenPressed(new SpitBalls());
     ballR.whenReleased(new StopBalls());
     
+    ArmF.whileHeld(new ArmForward());
+    ArmF.whenReleased(new ArmStop());
+    ArmR.whenPressed(new ArmReverse());
+    ArmR.whenReleased(new ArmStop());
+    
     Mast0.whenPressed(new MastUp());
     Mast1.whenPressed(new MastDown());
+    ratchet.whenPressed(new Ratchet());
     current.whenActive(new CurrentKill());
     
     //winchZero.whenPressed(new ZeroWinch());
@@ -90,11 +104,11 @@ public class OI {
 	}
 	
 	public static double getMast() {
-		return joystick0.getRawAxis(3);
+		return joystick1.getRawAxis(3);
 	}
 	
 	public static double getCam() {
-		return joystick1.getRawAxis(3);
+		return joystick0.getRawAxis(3);
 	}
 	
 	public static double getArm() {

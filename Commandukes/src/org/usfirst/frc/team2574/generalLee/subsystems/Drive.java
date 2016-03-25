@@ -32,20 +32,22 @@ public class Drive extends Subsystem {
         
     }
     
+    public static void setSafety(boolean safe) {
+    	robotDrive.setSafetyEnabled(safe);
+    }
+    
     public static void arcadeDrive(double throttle, double rotation) {
-    	if(inverted) {
+    	
     		robotDrive.arcadeDrive(throttle, rotation, false);
-    	}else {
-    		robotDrive.arcadeDrive(throttle, -rotation, false);
-    	}
+    	
     }
     
     public static void invert() {
-    	leftTal0.setInverted(!leftTal0.getInverted());
-    	leftTal1.setInverted(!leftTal1.getInverted());
-    	rightTal0.setInverted(!rightTal0.getInverted());
-    	rightTal1.setInverted(!rightTal1.getInverted());
-    	inverted = !inverted;
+    	leftTal0.setInverted(true);
+    	leftTal1.setInverted(true);
+    	rightTal0.setInverted(true);
+    	rightTal1.setInverted(true);
+    	inverted = true;
     }
 
     public void initDefaultCommand() {

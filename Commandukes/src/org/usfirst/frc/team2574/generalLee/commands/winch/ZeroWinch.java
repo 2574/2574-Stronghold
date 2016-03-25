@@ -40,9 +40,10 @@ public class ZeroWinch extends Command {
         	Timer.delay(1);
         	Winch.set(0);
         	System.out.println("stopped");
-        	Winch.initWinch();
+        	
         	System.out.println("post init");
-        	Winch.set(-.7);
+        	Winch.set(.1);
+        	Winch.setInit();
     	}
     	
     }

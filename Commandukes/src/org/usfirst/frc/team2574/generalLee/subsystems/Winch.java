@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2574.generalLee.subsystems;
 
 import org.usfirst.frc.team2574.generalLee.RobotMap;
+import org.usfirst.frc.team2574.generalLee.commands.OpenRatchet;
 import org.usfirst.frc.team2574.generalLee.commands.winch.TeleWinch;
 import org.usfirst.frc.team2574.generalLee.commands.winch.ZeroWinch;
 
@@ -40,6 +41,15 @@ public class Winch extends Subsystem {
     	//winchTal.setReverseSoftLimit(-0.05);
     	init = true;
     	winchTal.enableControl();
+	}
+	
+	public static void setInit() {
+		init = true;
+		
+	}
+	
+	public static double ratchetGet() {
+		return ratchet.get();
 	}
 	
 	public void tempInit() {
@@ -88,7 +98,9 @@ public class Winch extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new ZeroWinch());
+    	//setDefaultCommand(new ZeroWinch());
+    	//setDefaultCommand(new OpenRatchet());
+    	
     }
 }
 

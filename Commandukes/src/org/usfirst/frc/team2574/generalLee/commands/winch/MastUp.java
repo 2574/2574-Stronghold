@@ -25,7 +25,7 @@ public class MastUp extends Command {
     	Winch.ratchetSet(.6);
     	//double time = Timer.getFPGATimestamp();
     	while(Winch.lowLim() ) {
-    		Winch.set(.45);
+    		Winch.set(.6);
     	}
     	Winch.set(.15);
     	System.out.println("stopped");
@@ -33,7 +33,8 @@ public class MastUp extends Command {
     	Winch.initWinch();
     	
     	System.out.println("post init");
-    	Winch.set(-.2);
+    	Winch.set(.1);
+    	//Winch.set(-.2);
     	//Mast.initPosPID();
     }
 
@@ -51,8 +52,13 @@ public class MastUp extends Command {
     	Winch.ratchetSet(0.6);
     	
     	
-    	Timer.delay(.2);
-    	Winch.set(3.8);
+    	
+    	Winch.set(-.4);
+    	while(Winch.getPos() < 3.7) {
+    		
+    	}
+    	Winch.set(0);
+    	
     }
 
     // Called when another command which requires one or more of the same

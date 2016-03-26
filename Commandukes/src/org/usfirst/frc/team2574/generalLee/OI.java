@@ -14,10 +14,17 @@ import org.usfirst.frc.team2574.generalLee.commands.Ratchet;
 import org.usfirst.frc.team2574.generalLee.commands.SpitBalls;
 import org.usfirst.frc.team2574.generalLee.commands.StopBalls;
 import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
+import org.usfirst.frc.team2574.generalLee.commands.UnRatchet;
 import org.usfirst.frc.team2574.generalLee.commands.winch.CurrentKill;
+import org.usfirst.frc.team2574.generalLee.commands.winch.LowerMast;
+import org.usfirst.frc.team2574.generalLee.commands.winch.ManWinchUp;
 import org.usfirst.frc.team2574.generalLee.commands.winch.MastDown;
 import org.usfirst.frc.team2574.generalLee.commands.winch.MastUp;
+import org.usfirst.frc.team2574.generalLee.commands.winch.RaiseMast;
+import org.usfirst.frc.team2574.generalLee.commands.winch.ReleaseWinch;
+import org.usfirst.frc.team2574.generalLee.commands.winch.TorqueWinch;
 import org.usfirst.frc.team2574.generalLee.commands.winch.ZeroWinch;
+import org.usfirst.frc.team2574.generalLee.commands.winch.manWinch;
 import org.usfirst.frc.team2574.generalLee.commands.SuckBalls;
 
 /**
@@ -39,13 +46,17 @@ public class OI {
     Button ballF = new JoystickButton(joystick0, 1);
     Button ballR = new JoystickButton(joystick0, 2);
     
-    Button ArmF = new JoystickButton(joystick0, 6);
-    Button ArmR = new JoystickButton(joystick0, 4);
+    Button ArmF = new JoystickButton(joystick0, 5);
+    Button ArmR = new JoystickButton(joystick0, 3);
     
     Button Mast0 = new JoystickButton(joystick0, 12);
     Button Mast1 = new JoystickButton(joystick0, 11);
     Button winchZero = new JoystickButton(joystick1, 8);
     Button ratchet = new JoystickButton(joystick0, 9);
+    Button DeRatchet = new JoystickButton(joystick0, 10);
+    Button WinchButt = new JoystickButton(joystick1, 11);
+    Button WinchButtHi = new JoystickButton(joystick0, 7);
+    Button WinchButtUp = new JoystickButton(joystick0, 8);
     Trigger current = new Current();
     
     public OI() {
@@ -62,15 +73,22 @@ public class OI {
     ballR.whenPressed(new SpitBalls());
     ballR.whenReleased(new StopBalls());
     
-    ArmF.whileHeld(new ArmForward());
-    ArmF.whenReleased(new ArmStop());
-    ArmR.whenPressed(new ArmReverse());
+    ArmR.whileHeld(new ArmForward());
     ArmR.whenReleased(new ArmStop());
-    
-    Mast0.whenPressed(new MastUp());
-    Mast1.whenPressed(new MastDown());
+    ArmF.whenPressed(new ArmReverse());
+    ArmF.whenReleased(new ArmStop());
+   
+    WinchButt.whenPressed(new TorqueWinch());
+    WinchButt.whenReleased(new ReleaseWinch());
+    WinchButtHi.whenPressed(new manWinch());
+    WinchButtHi.whenReleased(new ReleaseWinch());
+    WinchButtUp.whenPressed(new ManWinchUp());
+    WinchButtUp.whenReleased(new ReleaseWinch());
+    Mast0.whenPressed(new RaiseMast());
+    Mast1.whenPressed(new LowerMast());
     ratchet.whenPressed(new Ratchet());
-    current.whenActive(new CurrentKill());
+    DeRatchet.whenPressed(new UnRatchet());
+    //current.whenActive(new CurrentKill());
     
     //winchZero.whenPressed(new ZeroWinch());
     // Start the command when the button is pressed and let it run the command

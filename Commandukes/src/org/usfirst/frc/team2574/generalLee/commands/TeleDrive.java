@@ -22,11 +22,13 @@ public class TeleDrive extends Command {
     protected void initialize() {
     	Drive.setSafety(true);
     	Drive.invert();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Drive.arcadeDrive(OI.getThrottle(), OI.getRotation());
+    	double throt = OI.getThrottle();
+    	Drive.arcadeDrive(throt, OI.getRotation());
     	
     }
 

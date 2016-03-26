@@ -5,6 +5,9 @@ import org.usfirst.frc.team2574.generalLee.Robot;
 import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
 
 
+
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -27,11 +30,14 @@ public class TeleMast extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double sp = (OI.getMast() * -4.46) + 4.97;
-    	Mast.set(sp);
-    	SmartDashboard.putNumber("setpoint", sp);
-    	SmartDashboard.putNumber("analog0", Mast.position0());
-    	SmartDashboard.putNumber("analog1", Mast.position1());
+    	double sp = (OI.getMast() * -4.45) + 4.94;
+    	
+    		
+        	Mast.set(sp);
+        	SmartDashboard.putNumber("setpoint", sp);
+        	SmartDashboard.putNumber("analog0", Mast.position0());
+        	SmartDashboard.putNumber("analog1", Mast.position1());
+    	
     	 
     	
     	

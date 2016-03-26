@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2574.generalLee.subsystems;
 
 import org.usfirst.frc.team2574.generalLee.RobotMap;
-import org.usfirst.frc.team2574.generalLee.commands.OpenRatchet;
+//import org.usfirst.frc.team2574.generalLee.commands.OpenRatchet;
 import org.usfirst.frc.team2574.generalLee.commands.winch.TeleWinch;
 import org.usfirst.frc.team2574.generalLee.commands.winch.ZeroWinch;
 
@@ -25,12 +25,12 @@ public class Winch extends Subsystem {
 	private static boolean init = false; 
 	
 	public static void initWinch() {
-		winchTal.changeControlMode(CANTalon.TalonControlMode.Position);
+		//winchTal.changeControlMode(CANTalon.TalonControlMode.Position);
 		winchTal.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
     	winchTal.configEncoderCodesPerRev(360);
     	
-    	winchTal.setVoltageRampRate(10);
-    	double kP = 0.25;
+    	winchTal.setVoltageRampRate(15);
+    	double kP = 0.28;
     	double kI = 0.00006;
     	double kD = 0.0;
     	winchTal.setPID(kP, kI, kD);
@@ -40,7 +40,7 @@ public class Winch extends Subsystem {
     	winchTal.setEncPosition(0);
     	//winchTal.setReverseSoftLimit(-0.05);
     	init = true;
-    	winchTal.enableControl();
+    	//winchTal.enableControl();
 	}
 	
 	public static void setInit() {

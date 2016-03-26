@@ -4,6 +4,7 @@ import org.usfirst.frc.team2574.generalLee.Robot;
 import org.usfirst.frc.team2574.generalLee.subsystems.Mast;
 import org.usfirst.frc.team2574.generalLee.subsystems.Winch;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -35,8 +36,16 @@ public class MastDown extends Command {
     protected void end() {
     	//Winch.ratchetSet(.18);
     	
-    	Winch.set(0);
+    	Winch.set(1);
     	
+    	while(Winch.getPos() > 1) {
+    		
+    	}
+    	Winch.set(.65);
+    	while(Winch.getPos() > 0.06) {
+    		
+    	}
+    	Winch.set(.15);
     	
     }
 

@@ -31,11 +31,9 @@ public class Ratchet extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	if(Winch.ratchetGet() < .3) {
-    		Winch.ratchetSet(.7);
-    	} else {
-    		Winch.ratchetSet(.18);
-    	}
+    	
+    	Winch.ratchetSet(.18);
+    	
     }
 
     // Called when another command which requires one or more of the same

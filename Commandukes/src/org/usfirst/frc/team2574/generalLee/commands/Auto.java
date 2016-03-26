@@ -33,8 +33,8 @@ public class Auto extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Drive.setSafety(false);
-    	Drive.arcadeDrive(1, 0);
-    	Timer.delay(3.5);
+    	Drive.arcadeDrive(-1, 0);
+    	Timer.delay(2.3);
     	Drive.arcadeDrive(0, 0);
     }
 
